@@ -1,0 +1,5 @@
+.make_me_light{
+    filter: invert(1);
+    color: white !important;
+    font-size: 2rem !important;
+  }

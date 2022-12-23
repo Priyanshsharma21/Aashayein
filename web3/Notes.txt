@@ -1,0 +1,248 @@
+!Blockchain Basics ->
+Data stored in database, and admin have access to that database (ex-> facebook have access to all of your data and can use it to do anything)
+
+In blockchain our data access is shared b/w all the users and changing it is near to impossible
+
+Blockchain works on ledger(its like a bill, who owns who), I gave jack 10 rupees,
+But this ledger is easy to temper(anyone can change the data inside it)
+To protect it we can lock it (make it immutable)
+ways->
+!1. Caeaser Ciper -> shifting the text (based on pattern and can be dcrypt easily)
+Plan Text -----encrypt-------> Ciper
+If we have key we can go forward and backward
+
+
+!2. Hashing -> Math formula which allow us to convert our data into hash code by passing data through hash function
+
+123 -> 45ree4wer4e43e
+abc -> e4red6wtr4r46e
+ 
+ if input length 3 then it will generate a perticular length o/p
+
+ Ex-> 56/2 -> divide completly
+ Now what is the fector of 56 this is deficult
+
+ Sumup -> In hashing going forward is easy but comming back is deficult
+
+
+!In blockchain we have a block
+Block -> 
+Block Number -> 1
+
+Nonce -> (Combine with data to form hash)->  we can deside our block let say starts with 4 zeros so what will be the nonce such that our hash will start with 4 zeros
+
+Data -> Hello priyansh how are you doing.
+
+Prev hash->wwed8d8d8w83
+
+Hash-> d4en448n48n4n4
+
+Now in blockchain we have multiple number of blocks which have (bNo, Nonce, Data, prevhash, hash)
+
+Now in every single block it takes 
+Nonce + Prev hash + Data = hash
+
+If any of the three thing change in a single block, all the block get affected and everyone knows that data is been changed
+
+All the block connect to each other like a chain
+
+!Distributed Blockchain (Ledger) ->
+
+Let say three computers (A, B, C)
+All of them have same copy of data with same nonce, prev and hash
+
+Now A try to mess with data and change it
+So the hash, nonce and prev hash change and now they are not equal to other B and C so our system knows that A is a bad player and trying to mess things
+
+
+!Now cherry on top is Ethereum -> 
+When ethereum comes it tells that not only we can store data in blocks but also we can store code what we call smart contract
+
+
+
+!Solidity 
+Solidity is a static typed Contract High Level Language
+It compiled into native byte code to execute by EVM(Ethereum Virtual Machine)
+
+!EVM - (Ethereum Virtual Machine)
+It is runtime enviroment for running contract code 
+
+
+!Features ->
+oops
+contract High Level language
+Static typed
+contract oriented
+runs on EVM
+
+
+!Contract
+Like Classes in Java
+Collection of contract function and there data that is stored in ethereum blockchain
+
+!Syntax ->
+pragma solidity >=0.4.0 <0.6.0;
+contract Name{
+    ?variable declaration
+    ?function
+}
+
+!Compilation ->
+Solidity code > Solidity Compiler –| | —- MachineByte Code – Ethereum Block chain
+
+
+!Smart Contract
+Smart Contract is a code that executes in a blockchain node and works independently.
+You can develop a smart contract in the following languages.
+Solidity
+Viper
+Rust
+ivy-lang
+
+Smart contract are immutable
+Data stored on block and have multiple copy
+
+
+
+
+
+!Variable -> Container to store data, type must be declear like (String, Address etc)
+Variable store data in blockchanin and for function
+
+Syntax -> 
+datatype  access-modifier variableName
+
+1. Datatype -> 
+a. value type : 
+int/ uint -> 1,2,4,53
+fixed/ ufixed - 0.3, 1.2
+bool -> true/false
+string -> "hello"
+address -> store referance (have two things balance and transfer) - 0x0000000000000
+
+
+2. Access Modifier -> 
+public
+private
+internal
+external
+
+
+!Scope ->
+Global Scope(State) variable
+Local Variable
+Global Inbuilt Variable
+
+
+1.variable declared in the contract are called state variables
+
+pragma solidity ^0.6.0;
+contract SolidityTest {
+   uint stateData;      // State variable
+   constructor() public {
+      stateData = 40;   // Using State variable
+   }
+}
+
+2. Local variable -> block scope
+
+pragma solidity ^0.5.0;
+contract MyContract {
+
+   uint age; // State variable
+   constructor() public {
+      age = 10;   
+   }
+   function add() public view returns(uint){
+    ? local variables are declared and accessed inside a function
+      uint localVariable1 = 12; // local variable
+      uint localVariable2 = 2; // local variable
+      uint sum = localVariable1 + localVariable2; // local variable
+      return sum; // access the local variable
+   }
+
+}
+
+3. Solidity defines the Global scope of predefined variables and is accessible anywhere contract running in the blockchain.
+
+pragma solidity ^0.5.0;
+
+contract MyContract{
+   
+   uint public gasCost;
+      
+   constructor() public {  
+      gasCost = tx.gasprice;
+   }
+}
+
+
+
+
+!Syntax decode ->
+
+pragma solidity ^0.5.0;
+contract helloWorld {   
+    constructor() public{
+
+    }
+
+    function print () public pure returns (string) {       
+        return 'Hello World! First Simple Smart Contract';             
+    } 
+}
+
+
+?1. The first line of the program is a solidity version or pragma to use in a program. It tells the solidity compiler version to compile source files
+
+*2.  contract helloWorld -> It is like class in java or typescript
+It contain default constructor called during instance creation of that class, and only called once
+
+function print () public pure returns (string) {      }
+function print is public abailable and return string type
+
+
+!Conditional ->
+pragma solidity ^0.5.0;
+
+contract SolidityTest {
+   uint age;
+   constructor() public {
+      age = 60;   
+   }
+   function checkAge() public view returns(string memory) {
+      if( age > 60) {   
+        return "60";
+      } else {
+       return "less than 60";
+      }       
+      return "default"; 
+   }
+  
+}
+
+!Interface ->
+
+
+Interface contain only function deceleration not body, No instance of interface and it end with ;
+
+
+
+!loop 
+
+ for(uint i=0; i<10; i++){
+        result=result+i;
+}
+
+while(i < 3) {
+        i++;
+        result=result+i;
+     }
+
+!Constructor ->
+
+It contain code to initlize or change
+
+
+!struct -> 
+It is like object in js
